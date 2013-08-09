@@ -1,14 +1,17 @@
-# get '/login' do 
-#     
-  
-# end
+enable :sessions
+
+
 post '/login' do
-  #logic to sign in user (authenticate)
-  #erb :list
+  if User.find_by_email(params[:email])
+    sessions[:email] = params[:email]
+    erb :choose_deck
+  else
+    redirect '/'
+  end
 end
 
 get '/sign_out' do
-  #logic to sign out user
+  sessions[:email] = nil
   erb :index
 end
 
