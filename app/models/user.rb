@@ -1,3 +1,9 @@
 class User < ActiveRecord::Base
-  # Remember to create a migration!
+
+  validates :password, presence: true
+
+
+
 end
+
+
