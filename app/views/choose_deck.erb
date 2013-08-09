@@ -2,11 +2,7 @@
 
 <p>Here are the decks to choose from: </p>
 
-<form action='/(index??)' method="post">
-  <select name="deck_choice">
-    <% (Deck).each do |deck| %>
-      <option value=<%= deck.id %>><%= deck.name %></option>
+    <% @decks.each do |deck| %>
+      <a href=<%= "/start_game/#{deck.id}" %>> <%= deck.id %>>: <%= deck.name %></a>
     <% end %>
-    <br><input type="submit" value="Submit">
-  </select>
-</form>
+

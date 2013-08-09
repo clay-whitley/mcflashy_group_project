@@ -2,16 +2,17 @@ enable :sessions
 
 
 post '/login' do
-  if User.find_by_email(params[:email])
-    sessions[:email] = params[:email]
-    erb :choose_deck
+  user = User.find_by_email(params[:email]) 
+  if user
+    sessions[:user] = user
+    redirect '/choose_deck'
   else
     redirect '/'
   end
 end
 
 get '/sign_out' do
-  sessions[:email] = nil
+  sessions[:user] = nil
   erb :index
 end
 
