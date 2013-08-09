@@ -16,7 +16,7 @@ end
 
 post '/guess' do
   current_round = Round.find(params[:round_id])
-  current_card = Card.find(params[:card_id])
+  current_card = Card.find(params[:guess][:card_id])
   user_guess = current_round.attempts.new(params[:guess])
   if current_card.term == user_guess.input
     user_guess.outcome = true
