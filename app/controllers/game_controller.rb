@@ -10,7 +10,7 @@ end
 
 get '/display_card/:round_id' do
   round = Round.find(params[:round_id])
-  @current_card = round.deck#.some_method_to_randomly_grab_card
+  @current_card = Card.find(round.grab_next_card)
   erb :guess_form
 end
 
