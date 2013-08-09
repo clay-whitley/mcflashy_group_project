@@ -1,9 +1,13 @@
 .container {
   margin: 20px auto;
-  width: 600px;
+  width: 700px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  border: 2px solid black;
 }
 th {
   text-align: left;
+}
+
+.card_display {
+  
 }
