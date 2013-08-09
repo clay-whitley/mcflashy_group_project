@@ -1,4 +1,8 @@
 class Round < ActiveRecord::Base
+
+  has_many :attempts
+  belongs_to :deck
+  belongs_to :user
   
   def grab_next_card
     played_cards = []
