@@ -1,9 +1,11 @@
 <h3>Play the game here</h3>
 
 
-  <form action="/??" method="post">
-   <!--  <% @deck %> -->
-    <input type="text" placeholder="Guess CHUMP!">
+  <form action="/guess" method="post">
+   <% @current_card.description%>
+    <input type="text" name="guess[input]" placeholder="guess">
+    <input type="hidden" name="round_id" value=<%= @round_id %>>
+    <input type="hidden" name="guess[card_id]" value=<%= @current_card.id %>>
     <input type="submit" value="Submit">
   </form>
 
