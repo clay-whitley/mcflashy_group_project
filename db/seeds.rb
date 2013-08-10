@@ -23,3 +23,19 @@ new_deck.cards.create(term: "Redwood", description: "Tallest tree in the world")
 new_deck.cards.create(term: "Magnolia", description: "Huge white blooms, common in the Southern USA")
 new_deck.cards.create(term: "Willow", description: "Long strands of oval leaves, sometimes weeping")
 new_deck.cards.create(term: "Apricot", description: "Known for their apricots")
+
+user = User.new(first_name: "Bob", last_name: "Loblaw", email: "bob@loblaw.com")
+user.password = "lobs"
+user.save
+user = User.new(first_name: "Micheal", last_name: "Bluth", email: "bluth@realty.net")
+user.password = "george"
+user.save
+user = User.new(first_name: "Gob", last_name: "Bluth", email: "illusions@magic.biz")
+user.password = "delight"
+user.save
+user = User.new(first_name: "Dexter", last_name: "Morgan", email: "regular@guy.com")
+user.password = "deb"
+user.save
+user = User.new(first_name: "Omar", last_name: "Little", email: "street@justice.com")
+user.password = "nine"
+user.save
