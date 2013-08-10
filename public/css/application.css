@@ -1,13 +1,29 @@
-.container {
-  margin: 20px auto;
+#content_container {
+  margin: 60px auto;
   width: 700px;
   padding: 0px 20px 20px 20px;
   border: 2px solid black;
 }
+
+.container {
+  margin: 0 auto;
+  width: 700px;
+  padding: 15px 20px 20px 0;
+}
+
 th {
   text-align: left;
 }
 
 .card_display {
   
+}
+
+.header {
+  background-color: #999;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
