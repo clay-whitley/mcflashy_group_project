@@ -23,8 +23,10 @@ post '/guess' do
   user_guess = @current_round.attempts.new(params[:guess])
   if current_card.term.downcase == user_guess.input.downcase
     user_guess.outcome = true
+    #can we add a number to increase with true_guesses += 1
   else
     user_guess.outcome = false
+    #also add a number of false_guesses += 1
   end
   user_guess.save
   if user_guess.outcome
@@ -36,7 +38,7 @@ post '/guess' do
 end
 
 get '/statistics' do
-  
+
 
   erb :stats
 end
