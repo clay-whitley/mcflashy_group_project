@@ -5,6 +5,7 @@ end
 
 get '/start_game/:id' do
   deck = Deck.find(params[:id])
+  p session
   round = deck.rounds.create(user_id: session[:user].id)
   redirect "/display_card/#{round.id}"
 end
