@@ -35,4 +35,8 @@ post '/guess' do
   erb :outcome
 end
 
+get '/statistics' do
 
+
+  erb :stats
+end
