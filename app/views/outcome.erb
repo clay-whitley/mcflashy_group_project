@@ -1,2 +1,7 @@
 <h1> <%= @outcome %> </h1>
 <a href=<%= "/display_card/#{@current_round.id}" %>> Next card! </a>
+
+
+<form class="logout" action="/stats" align="right" method="get">
+  <input type="submit" value="End Round">
+</form>

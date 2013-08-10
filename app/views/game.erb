@@ -2,7 +2,7 @@
 
 
   <form action="/guess" method="post">
-   <% @current_card.description%>
+   <%= @current_card.description%><br>
     <input type="text" name="guess[input]" placeholder="guess">
     <input type="hidden" name="round_id" value=<%= @round_id %>>
     <input type="hidden" name="guess[card_id]" value=<%= @current_card.id %>>
@@ -10,6 +10,6 @@
   </form>
 
 
-<form class="logout" method="get" action="/sign_out">
-  <input type="submit" value="Quit and Logout">
+<form class="logout" action="/stats" align="right" method="get">
+  <input type="submit" value="End Round">
 </form>
