@@ -1,6 +1,10 @@
 get '/choose_deck' do
- @decks = Deck.all
- erb :choose_deck
+  @decks = Deck.all
+  if session[:user]
+    erb :choose_deck
+  else
+    redirect '/'
+  end
 end
 
 get '/start_game/:id' do
