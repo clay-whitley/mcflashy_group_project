@@ -29,5 +29,3 @@ assert(deck_1.cards.map { |card| card.id }.include?(round_1.grab_next_card), "Th
 assert(attempt_1.outcome, "The outcome of the first attempt should be true")
 assert(attempt_2.outcome == false, "The second attempt should be false")
 
-
-
