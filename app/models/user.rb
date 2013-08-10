@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :rounds
-  validates :password, presence: true
+  validates :password_hash, presence: true
 
 end
 

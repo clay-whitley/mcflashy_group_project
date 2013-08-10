@@ -3,8 +3,9 @@
 # end
 
 post '/sign_up' do
-  User.create(email: params[:email], password: params[:password])
-  sessions[:email] = params[:email]
+  p params
+  User.create(email: params[:email], password_hash: params[:password])
+  session[:email] = params[:email]
   erb :choose_deck
 end
 
