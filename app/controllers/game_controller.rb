@@ -12,16 +12,21 @@ end
 
 get '/display_card/:round_id' do
   round = Round.find(params[:round_id])
-  @current_card = Card.find(round.grab_next_card)
+  next_card = round.grab_next_card
+  unless next_card.nil?
+    @current_card = Card.find(next_card)
+  else
+    redirect '/choose_deck'
+  end
   @round_id = round.id
   erb :game
 end
 
 post '/guess' do
   @current_round = Round.find(params[:round_id])
-  current_card = Card.find(params[:guess][:card_id])
+  @current_card = Card.find(params[:guess][:card_id])
   user_guess = @current_round.attempts.new(params[:guess])
-  if current_card.term.downcase == user_guess.input.downcase
+  if @current_card.term.downcase == user_guess.input.downcase
     user_guess.outcome = true
     #can we add a number to increase with true_guesses += 1
   else
