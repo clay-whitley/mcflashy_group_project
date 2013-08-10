@@ -1,8 +1,7 @@
-enable :sessions
 
 
 post '/login' do
-  user = User.find_by_email(params[:email]) 
+  user = User.authenticate(params[:email], params[:password])
   if user
     session[:user] = user
     redirect '/choose_deck'
