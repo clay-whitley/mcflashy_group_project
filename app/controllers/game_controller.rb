@@ -36,7 +36,7 @@ post '/guess' do
 end
 
 get '/statistics' do
-
+  
 
   erb :stats
 end

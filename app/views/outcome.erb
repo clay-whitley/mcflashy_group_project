@@ -2,6 +2,6 @@
 <a href=<%= "/display_card/#{@current_round.id}" %>> Next card! </a>
 
 
-<form class="end_round" action="/statistics" align="right" method="get">
+<form class=<% "#{@current_round.id}" %> action="/statistics" align="right" method="get">
   <input type="submit" value="End Round">
 </form>
