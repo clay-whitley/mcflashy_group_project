@@ -1,2 +1,8 @@
 <h1> <%= @outcome %> </h1>
+<p>The answer is: <%= @current_card.term %></p>
 <a href=<%= "/display_card/#{@current_round.id}" %>> Next card! </a>
+
+
+<form class=<% "#{@current_round.id}" %> action="/statistics" align="right" method="get">
+  <input type="submit" value="End Round">
+</form>

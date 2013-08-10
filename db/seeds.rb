@@ -17,7 +17,7 @@ new_deck.cards.create(term: "Horrible Gelatinous Blob", description: "Large tran
 
 
 new_deck = Deck.create(name: "Trees")
-new_deck.cards.create(term: "Ginko", description: "Fan-shaped leaves, common in Eastern medecine")
+new_deck.cards.create(term: "Ginko", description: "Fan-shaped leaves, common in Eastern medicine")
 new_deck.cards.create(term: "Bristlecone pine", description: "Oldest non-clonal tree")
 new_deck.cards.create(term: "Redwood", description: "Tallest tree in the world")
 new_deck.cards.create(term: "Magnolia", description: "Huge white blooms, common in the Southern USA")

@@ -9,7 +9,7 @@ class Round < ActiveRecord::Base
     all_cards_in_deck = self.deck.cards.all
     all_cards_in_deck.map! { |card| card.id }
     self.attempts.each do |attempt|
-      played_cards << attempt.card_id
+      played_cards << attempt.card_id if attempt.outcome == true
     end
     (all_cards_in_deck - played_cards).sample
   end

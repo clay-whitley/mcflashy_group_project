@@ -5,27 +5,27 @@ end
 
 get '/start_game/:id' do
   deck = Deck.find(params[:id])
+  p session
   round = deck.rounds.create(user_id: session[:user].id)
   redirect "/display_card/#{round.id}"
 end
 
 get '/display_card/:round_id' do
   round = Round.find(params[:round_id])
-  @current_card = Card.find(round.grab_next_card)
+  next_card = round.grab_next_card
+  unless next_card.nil?
+    @current_card = Card.find(next_card)
+  else
+    redirect '/choose_deck'
+  end
   @round_id = round.id
   erb :game
 end
 
 post '/guess' do
   @current_round = Round.find(params[:round_id])
-  current_card = Card.find(params[:guess][:card_id])
-  user_guess = @current_round.attempts.new(params[:guess])
-  if current_card.term.downcase == user_guess.input.downcase
-    user_guess.outcome = true
-  else
-    user_guess.outcome = false
-  end
-  user_guess.save
+  @current_card = Card.find(params[:guess][:card_id])
+  user_guess = @current_round.attempts.create(params[:guess])
   if user_guess.outcome
     @outcome = "Correct!"
   else
@@ -34,4 +34,8 @@ post '/guess' do
   erb :outcome
 end
 
+get '/statistics' do
 
+
+  erb :stats
+end
