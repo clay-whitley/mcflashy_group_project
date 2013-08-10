@@ -1,0 +1,15 @@
+<h3>Way to go: <%= User.where(id: session[:id]).pluck(:email) %>!</h3>
+
+<p>Here are your latest games: </p>
+
+<% user_rounds = Round.where(user_id: session[:id]).pluck(:id) %>
+
+<% user_rounds.each do |round| %>
+
+  <% true_guesses = Attempt.where(outcome: true).find_all_by_round_id(round).count %>
+  <% total_guesses = Attempt.find_all_by_round_id(round).count %>
+
+  <%= User.where(id: session[:id]).pluck(:email) %> got <%= true_guesses %> right out of <%= total_guesses %> for <%= (true_guesses.to_f/total_guesses) %>%. 
+  <br>
+<% end %>
+
