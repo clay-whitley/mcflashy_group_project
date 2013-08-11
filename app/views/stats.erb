@@ -1,18 +1,12 @@
+<h3><%= @name %>, welcome to the Get Carded leaderboard!</h3>
+
+<p>Let's see where you rank amongst the all time greats: </p>
 
 <% @round_user.each do |round, user| %>
 
 <% true_guesses = Attempt.where(outcome: true).find_all_by_round_id(round).count %>
 <% total_guesses = Attempt.find_all_by_round_id(round).count %>
-
-<%= User.where(id: user).pluck(:email) %> got <%= true_guesses %> right out of <%= total_guesses %> for <%= (true_guesses.to_f/total_guesses) %>%. 
-
+<% unless total_guesses == 0 %>
+<%= User.where(id: user).pluck(:first_name).join %> got <%= true_guesses %> right out of <%= total_guesses %> for <%= (100 * (true_guesses.to_f/total_guesses)).round %>%. <br>
 <% end %>
-
-
-<form class="logout" action="/sign_out" align="right" method="get">
-  <input type="submit" value="Log Out">
-</form>
-
-<form class="home" action="/" align="right" method="get">
-  <input type="submit" value="Home">
-</form>
+<% end %>

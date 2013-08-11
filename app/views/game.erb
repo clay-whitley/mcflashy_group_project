@@ -14,6 +14,7 @@
   </div>
 </div>
 
-<form class=<%= @round_id %> action="/statistics" align="right" method="get">
+<form class=<%= @round_id %> action="/your_results" align="right" method="get">
+  <input type="hidden" name="round_id" value=<%= @round_id %>>
   <input type="submit" value="End Round">
 </form>

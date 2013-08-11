@@ -39,25 +39,24 @@ post '/guess' do
 end
 
 get '/global_stats' do
-@all_rounds = Round.pluck(:id)
-@all_users = Round.pluck(:user_id)
-@round_user = Hash[@all_rounds.zip(@all_users)]
-
+  @all_rounds = Round.pluck(:id)
+  @all_users = Round.pluck(:user_id)
+  @round_user = Hash[@all_rounds.zip(@all_users)]
+  @name = User.where(id: session[:user].id).pluck(:first_name).join('')
   erb :stats
 end
 
-get '/results' do
-@true_guesses = Attempt.where(outcome: true).find_all_by_round_id(session[:round_id]).count
-@total_guesses = Attempt.find_all_by_round_id(session[:round_id]).count
-session[:user_email] = User.where(id: session[:id]).pluck(:email)
-
- erb :results
+get '/your_results' do
+  params[:round_id] = @current_round.id if @current_round
+  @true_guesses = Attempt.where(outcome: true).find_all_by_round_id(params[:round_id]).count
+  @total_guesses = Attempt.find_all_by_round_id(params[:round_id]).count
+  @name = User.where(id: session[:user].id).pluck(:first_name).join('')
+  erb :results
 end
 
 get '/user_stats' do
-  @user_rounds = Round.where(user_id: session[:id]).pluck(:id)
-
-
+  @user_rounds = Round.where(user_id: session[:user].id).pluck(:id)
+  @name = User.where(id: session[:user].id).pluck(:first_name).join('')
   erb :user_stats
 end
 

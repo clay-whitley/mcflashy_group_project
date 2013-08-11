@@ -1,13 +1,10 @@
-<h3>Great Game <%= session[:user_email] %>!</h3>
+<h3>Great Game <%= @name %>!</h3>
 
+<% if @total_guesses == 0 %>
+  <%= "#{@name}, if you don't try you won't succeed!" %>
+<% else %>
+  You got <%= @true_guesses %>
+  right out of <%= @total_guesses %>
+  for <%= (100 * (@true_guesses.to_f/@total_guesses)).round %>%.
+<% end %> 
 
-<%= session[:user_email] %> got <%= @true_guesses %> right out of <%= @total_guesses %> for <%= (@true_guesses.to_f/@total_guesses) %>%. 
-
-
-<form class="logout" action="/sign_out" align="right" method="get">
-  <input type="submit" value="Log Out">
-</form>
-
-<form class="home" action="/" align="right" method="get">
-  <input type="submit" value="Home">
-</form>
