@@ -1,6 +1,10 @@
-<h2>Create a new deck</h2>
-<form action="/decks" method="post">
-  <p>Deck name:</p>
-  <input type="text" name="deck[name]">
-  <input type="submit" value="submit">
-</form>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3 well">
+    <h3>Create a new deck</h3>
+    <form action="/decks" method="post" class="form-inline">
+      <p>Deck name:</p>
+      <input type="text" name="deck[name]" class="form-control" style="width:175px">
+      <button class="btn btn-default" type="submit">Submit</button>
+    </form>
+  </div>
+</div>

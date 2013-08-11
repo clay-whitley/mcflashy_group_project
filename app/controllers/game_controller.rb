@@ -41,7 +41,7 @@ end
 get '/global_stats' do
 @all_rounds = Round.pluck(:id)
 @all_users = Round.pluck(:user_id)
-@round_user = Hash[all_rounds.zip(all_users)]
+@round_user = Hash[@all_rounds.zip(@all_users)]
 
   erb :stats
 end
