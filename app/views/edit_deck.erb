@@ -1,0 +1,10 @@
+<h1><%= @deck.name %></h1>
+
+<form action=<%= "/decks/#{@deck.id}/add" %> method="post">
+  <h3>Add Card:</h3>
+  <p>Term</p>
+  <input type="text" name="card[term]">
+  <p>Description</p>
+  <input type="text" name="card[description]">
+  <input type="submit" value="submit">
+</form>

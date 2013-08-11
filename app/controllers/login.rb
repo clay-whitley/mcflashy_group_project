@@ -10,7 +10,7 @@ end
 
 get '/sign_out' do
   session[:user] = nil
-  erb :index
+  erb :index, layout: false
 end
 
 
