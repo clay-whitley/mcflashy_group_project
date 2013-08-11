@@ -1,5 +1,12 @@
 <h1><%= @deck.name %></h1>
 
+<h3>Cards in deck:</h3>
+<ul>
+  <% @deck.cards.each do |card| %>
+    <li><%= card.term%>: <%=card.description %></li>
+  <% end %>
+</ul>
+
 <form action=<%= "/decks/#{@deck.id}/add" %> method="post">
   <h3>Add Card:</h3>
   <p>Term</p>
