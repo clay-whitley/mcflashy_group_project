@@ -1,3 +1,8 @@
+<h3>Great Game <%= session[:user_email] %>!</h3>
+
+
+<%= session[:user_email] %> got <%= @true_guesses %> right out of <%= @total_guesses %> for <%= (@true_guesses.to_f/@total_guesses) %>%. 
+
 
 <form class="logout" action="/sign_out" align="right" method="get">
   <input type="submit" value="Log Out">

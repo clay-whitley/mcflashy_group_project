@@ -1,10 +1,18 @@
-<h3>Great Game <% "#{user.first_name}" %></h3>
 
-<p>You guessed (number) true and (number) false.</p>
-<p>That is (true_guesses / (true_guesses + false_guesses))%.</p>
-<!-- <% true_guesses %> <% false_guesses %>-->
+<% @round_user.each do |round, user| %>
+
+<% true_guesses = Attempt.where(outcome: true).find_all_by_round_id(round).count %>
+<% total_guesses = Attempt.find_all_by_round_id(round).count %>
+
+<%= User.where(id: user).pluck(:email) %> got <%= true_guesses %> right out of <%= total_guesses %> for <%= (true_guesses.to_f/total_guesses) %>%. 
+
+<% end %>
 
 
 <form class="logout" action="/sign_out" align="right" method="get">
   <input type="submit" value="Log Out">
+</form>
+
+<form class="home" action="/" align="right" method="get">
+  <input type="submit" value="Home">
 </form>
