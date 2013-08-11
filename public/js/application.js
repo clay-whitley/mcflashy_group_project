@@ -4,4 +4,10 @@ $(document).ready(function() {
   // when we try to bind to them
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $('#logout').on('click', function(e){
+    e.preventDefault();
+    $.get('/sign_out', function(data){
+      $('#content_container').html(data);
+    });
+  });
 });
