@@ -10,26 +10,27 @@
   <!--
     application.css is where you put your styles
   -->
+  <link rel="stylesheet" href="/css/bootstrap.css">
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+  <script src="/js/bootstrap.js"></script>
 
   <title></title>
 </head>
 <body>
-  <div class="header">
-    <div class="container">
-      <nav>
-        <a href="/">Home</a>
-        <% if current_user %>
-          <a href="/sign_out" id="logout">Logout</a>
-          <a href="/choose_deck">Decks</a>
-        <% end %>
-      </nav>
+  <div class="container">
+    <div class="navbar">
+      <a class="navbar-brand" href="#">McFlashy</a>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/choose_deck">Decks</a></li>
+        <li><a href="/sign_out">Logout</a></li>
+      </ul>
     </div>
   </div>
-  <div id="content_container">
+  <div id="content_container" class="container panel">
     <%= yield %>
   </div>
 </body>
