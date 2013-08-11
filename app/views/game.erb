@@ -1,14 +1,18 @@
-<h3>Play the game here</h3>
 
 
-  <form action="/guess" method="post">
-   <%= @current_card.description%><br>
-    <input type="text" name="guess[input]" placeholder="guess">
-    <input type="hidden" name="round_id" value=<%= @round_id %>>
-    <input type="hidden" name="guess[card_id]" value=<%= @current_card.id %>>
-    <input type="submit" value="Submit">
-  </form>
-
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3 well">
+    <h3 style="margin:0">Card definition</h3>
+    <hr>
+    <p><%= @current_card.description %></p>
+    <form action="/guess" method="post" class="form-inline">
+      <input type="text" name="guess[input]" placeholder="Guess" class="form-control" style="width:250px">
+      <input type="hidden" name="round_id" value=<%= @round_id %>>
+      <input type="hidden" name="guess[card_id]" value=<%= @current_card.id %>>
+      <button class="btn btn-default btn-sm" type="submit">Submit</button>
+    </form>
+  </div>
+</div>
 
 <form class=<%= @round_id %> action="/statistics" align="right" method="get">
   <input type="submit" value="End Round">

@@ -26,8 +26,14 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Home</a></li>
         <li><a href="/choose_deck">Decks</a></li>
-        <li><a href="/sign_out">Logout</a></li>
+        <li><a href="/sign_out" id="logout">Logout</a></li>
       </ul>
+        <form class="form-inline pull-right login_form" method="post" action="/login">
+          <input class="form-control" type="email" name="email" placeholder="Email" style="width:175px">
+          <input class="form-control" type="password" name="password" placeholder="Password" style="width:175px">
+
+          <button class="btn btn-default" type="submit"> Sign in </button>
+        </form>
     </div>
   </div>
   <div id="content_container" class="container panel">

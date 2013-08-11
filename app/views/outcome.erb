@@ -1,7 +1,10 @@
-<h1> <%= @outcome %> </h1>
-<p>The answer is: <%= @current_card.term %></p>
-<a href=<%= "/display_card/#{@current_round.id}" %>> Next card! </a>
-
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3 well">
+    <h3 style="margin:0"><%= @outcome %></h3>
+    <p>The answer is: <%= @current_card.term %></p>
+    <a class="btn btn-default" href=<%= "/display_card/#{@current_round.id}" %>> Next card! </a>
+  </div>
+</div>
 
 <form class=<% "#{@current_round.id}" %> action="/statistics" align="right" method="get">
   <input type="submit" value="End Round">
