@@ -1,8 +1,6 @@
-<h3>Way to go: <%= User.where(id: session[:id]).pluck(:email) %>!</h3>
+<h3>Way to go: <%= session[:user_email] %>!</h3>
 
 <p>Here are your latest games: </p>
-
-<% user_rounds = Round.where(user_id: session[:id]).pluck(:id) %>
 
 <% user_rounds.each do |round| %>
 
@@ -13,3 +11,10 @@
   <br>
 <% end %>
 
+<form class="logout" action="/sign_out" align="right" method="get">
+  <input type="submit" value="Log Out">
+</form>
+
+<form class="home" action="/" align="right" method="get">
+  <input type="submit" value="Home">
+</form>
