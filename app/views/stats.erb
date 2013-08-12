@@ -7,6 +7,7 @@
 <% true_guesses = Attempt.where(outcome: true).find_all_by_round_id(round).count %>
 <% total_guesses = Attempt.find_all_by_round_id(round).count %>
 <% unless total_guesses == 0 %>
-<%= User.where(id: user).pluck(:first_name).join %> got <%= true_guesses %> right out of <%= total_guesses %> for <%= (100 * (true_guesses.to_f/total_guesses)).round %>%. <br>
+<%= User.where(id: user).pluck(:first_name).join %> got <%= true_guesses %> right out of <%= total_guesses %> for <%= (100 * (true_guesses.to_f/total_guesses)).round %>% using the 
+  <%= Deck.where(id: (Round.where(id: round).pluck(:deck_id))).pluck(:name).join('') %> deck. <br>
 <% end %>
 <% end %>
