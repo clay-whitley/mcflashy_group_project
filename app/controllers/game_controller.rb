@@ -2,9 +2,9 @@
 get '/choose_deck' do
   @decks = Deck.all
   if session[:user]
-    erb :choose_deck
+    erb :choose_deck, layout: false
   else
-    redirect '/'
+    erb :index, layout: false
   end
 end
 
@@ -20,7 +20,7 @@ get '/display_card/:round_id' do
   unless next_card.nil?
     @current_card = Card.find(next_card)
   else
-    redirect '/choose_deck'
+    redirect "/your_results/#{round.id}"
   end
   @round_id = round.id
   erb :game, layout: false
@@ -46,19 +46,18 @@ get '/global_stats' do
   erb :stats
 end
 
-get '/your_results' do
-  params[:round_id] = @current_round.id if @current_round
-  @deck = Deck.where(id: (Round.where(id: (params[:round_id])).pluck(:deck_id))).pluck(:name).join('')
-  @true_guesses = Attempt.where(outcome: true).find_all_by_round_id(params[:round_id]).count
-  @total_guesses = Attempt.find_all_by_round_id(params[:round_id]).count
-  @name = User.where(id: session[:user].id).pluck(:first_name).join('')
-  erb :results
+get '/your_results/:round_id' do
+  round = Round.find(params[:round_id])
+  @true_guesses = round.attempts.where(outcome: true).count
+  @total_guesses = round.attempts.count
+  @name = session[:user].first_name
+  erb :results, layout: false
 end
 
 get '/user_stats' do
-  @user_rounds = Round.where(user_id: session[:user].id).pluck(:id)
-  @name = User.where(id: session[:user].id).pluck(:first_name).join('')
-  erb :user_stats
+  user = session[:user]
+  @user_rounds = user.rounds
+  erb :user_stats, layout: false
 end
 
 

@@ -3,10 +3,7 @@
   <h3 style="margin:0"><%= @outcome %></h3>
   <p>The answer is: <%= @current_card.term %></p>
   <a class="btn btn-default" href=<%= "/display_card/#{@current_round.id}" %> id="nextCard"> Next card! </a>
+  <button class="btn btn-danger" id="quitRound" data-round=<%= @current_round.id %>>Quit round</button>
 </div>
 
 
-<form class=<%= @current_round.id %> action="/your_results" align="right" method="get">
-  <input type="hidden" name="round_id" value=<%= @current_round.id %>>
-  <input type="submit" value="End Round">
-</form>

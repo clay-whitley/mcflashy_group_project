@@ -22,19 +22,18 @@
 <body>
   <div class="container">
     <div class="navbar">
-      <a href="/" class="navbar-brand" href="#">Get Carded</a>
+      <a href="#" class="navbar-brand" href="#">Get Carded</a>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/">Home</a></li>
-        <li><a href="/choose_deck">Decks</a></li>
-        <li><a href="/sign_out" id="logout">Logout</a></li>
-        <li><a href="/user_stats">Your Stats</a></li>
-        <li><a href="/global_stats">Global Stats</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="#" id="decksPage" <%= "style='display:none'" unless current_user %>>Decks</a></li>
+        <li><a href="#" id="userStats" <%= "style='display:none'" unless current_user %>>User Stats</a></li>
+        <li><a href="/sign_out" id="logout" <%= "style='display:none'" unless current_user %>>Logout</a></li>
       </ul>
-        <form class="form-inline pull-right login_form" method="post" action="/login">
+        <form class="form-inline pull-right login_form" method="post" action="/login" <%= "style='display:none'" if current_user %>>
           <input class="form-control" type="email" name="email" placeholder="Email" style="width:175px">
           <input class="form-control" type="password" name="password" placeholder="Password" style="width:175px">
 
-          <button class="btn btn-default" type="submit"> Sign in </button>
+          <button class="btn btn-default" id="signInUser"> Sign in </button>
         </form>
     </div>
   </div>

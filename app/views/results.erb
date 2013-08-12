@@ -1,11 +1,13 @@
-<h3>Great Game <%= @name %>!</h3>
+<div class="col-lg-6 col-lg-offset-3 well">
+  <h3>Great Game <%= @name %>!</h3>
 
-<% if @total_guesses == 0 %>
-  <%= "#{@name}, if you don't try you won't succeed!" %>
-<% else %>
-  You got <%= @true_guesses %>
-  right out of <%= @total_guesses %>
-  for <%= (100 * (@true_guesses.to_f/@total_guesses)).round %>% using the 
-  <%= @deck %> deck.
-<% end %> 
+  <% if @total_guesses == 0 %>
+    <%= "#{@name}, if you don't try you won't succeed!" %>
+  <% else %>
+    You got <%= @true_guesses %>
+    right out of <%= @total_guesses %>
+    for <%= (100 * (@true_guesses.to_f/@total_guesses)).round %>%.
+  <% end %> 
+</div>
+
 

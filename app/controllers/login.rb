@@ -4,7 +4,7 @@ post '/login' do
     session[:user] = user
     redirect '/choose_deck'
   else
-    redirect '/'
+    erb :index, layout: false
   end
 end
 
