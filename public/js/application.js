@@ -40,7 +40,7 @@ $(document).ready(function() {
 
   $('#content_container').on('click', '.start_game', function(e){
     e.preventDefault();
-    url = $(this).attr("href");
+    var url = $(this).attr("href");
     $('#content_container').fadeOut();
     $.get(url, function(response){
       $('#content_container').html(response).fadeIn();
@@ -53,8 +53,7 @@ $(document).ready(function() {
     e.preventDefault();
     $('#content_container').fadeOut();
     $.post('/guess', $(this).closest('form').serialize(), function(response){
-      $('#content_container').html(response);
-      $('#content_container').fadeIn();
+      $('#content_container').html(response).fadeIn();
     });
   });
 
@@ -62,7 +61,7 @@ $(document).ready(function() {
 
   $('#content_container').on('click', '#nextCard', function(e){
     e.preventDefault();
-    url = $(this).attr('href');
+    var url = $(this).attr('href');
     $('#content_container').fadeOut();
     $.get(url, function(response){
       $('#content_container').html(response).fadeIn();
