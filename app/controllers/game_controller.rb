@@ -48,6 +48,7 @@ end
 
 get '/your_results' do
   params[:round_id] = @current_round.id if @current_round
+  @deck = Deck.where(id: (Round.where(id: (params[:round_id])).pluck(:deck_id))).pluck(:name).join('')
   @true_guesses = Attempt.where(outcome: true).find_all_by_round_id(params[:round_id]).count
   @total_guesses = Attempt.find_all_by_round_id(params[:round_id]).count
   @name = User.where(id: session[:user].id).pluck(:first_name).join('')

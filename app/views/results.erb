@@ -5,6 +5,7 @@
 <% else %>
   You got <%= @true_guesses %>
   right out of <%= @total_guesses %>
-  for <%= (100 * (@true_guesses.to_f/@total_guesses)).round %>%.
+  for <%= (100 * (@true_guesses.to_f/@total_guesses)).round %>% using the 
+  <%= @deck %> deck.
 <% end %> 
 
