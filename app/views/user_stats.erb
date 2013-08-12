@@ -10,7 +10,7 @@
   <% unless total_guesses == 0 %>
     <%= current_user.first_name %> got <%= true_guesses %> right out of <%= total_guesses %> for <%= (100 * (true_guesses.to_f/total_guesses)).round %>% 
     using the <%= Deck.where(id: (Round.where(id: round).pluck(:deck_id))).pluck(:name).join('') %> deck.
-.  <br>
+ <br>
   <% end %> 
 
 <% end %>
