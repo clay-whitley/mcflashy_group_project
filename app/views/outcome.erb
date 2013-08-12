@@ -6,6 +6,7 @@
 </div>
 
 
-<form class=<% "#{@current_round.id}" %> action="/statistics" align="right" method="get">
+<form class=<%= @current_round.id %> action="/your_results" align="right" method="get">
+  <input type="hidden" name="round_id" value=<%= @current_round.id %>>
   <input type="submit" value="End Round">
 </form>
