@@ -1,0 +1,6 @@
+<tr>
+  <td><%= deck.id %></td>
+  <td><%= deck.name %></td>
+  <td><a class="btn btn-default btn-xs" href=<%= "/decks/#{deck.id}/add_cards" %>>Add cards</a></td>
+  <td><a class="btn btn-success btn-xs start_game" href=<%= "/start_game/#{deck.id}" %>>Start game</a></td>
+</tr>

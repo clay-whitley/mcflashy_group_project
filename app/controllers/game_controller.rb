@@ -1,3 +1,4 @@
+
 get '/choose_deck' do
   @decks = Deck.all
   if session[:user]
@@ -9,7 +10,6 @@ end
 
 get '/start_game/:id' do
   deck = Deck.find(params[:id])
-  p session
   round = deck.rounds.create(user_id: session[:user].id)
   redirect "/display_card/#{round.id}"
 end
@@ -23,7 +23,7 @@ get '/display_card/:round_id' do
     redirect '/choose_deck'
   end
   @round_id = round.id
-  erb :game
+  erb :game, layout: false
 end
 
 post '/guess' do
@@ -35,7 +35,7 @@ post '/guess' do
   else
     @outcome = "Incorrect!"
   end
-  erb :outcome
+  erb :outcome, layout: false
 end
 
 get '/global_stats' do

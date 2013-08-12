@@ -1,20 +1,20 @@
-<div class="row">
-  <div class="col-lg-6 col-lg-offset-3">
-    <div class="well">
-      <h2><%= @deck.name %></h1>
-      <p>Cards in deck:</p>
-      <ul>
-        <% @deck.cards.each do |card| %>
-          <li><%= card.term%>: <%=card.description %></li>
-        <% end %>
-      </ul>
-    </div>
 
-    <form action=<%= "/decks/#{@deck.id}/add" %> method="post" class="form-inline">
-      <h3>Add Card:</h3>
-      <input type="text" name="card[term]" placeholder="Term" class="form-control" style="width:150px;">
-      <input type="text" name="card[description]" placeholder="Description" class="form-control" style="width:300px">
-      <button class="btn btn-default" type="submit">Submit</button>
-    </form>
+<div class="col-lg-6 col-lg-offset-3">
+  <div class="well">
+    <h2><%= @deck.name %></h1>
+    <p>Cards in deck:</p>
+    <ul>
+      <% @deck.cards.each do |card| %>
+        <li><%= card.term%>: <%=card.description %></li>
+      <% end %>
+    </ul>
   </div>
+
+  <form action=<%= "/decks/#{@deck.id}/add" %> method="post" class="form-inline">
+    <h3>Add Card:</h3>
+    <input type="text" name="card[term]" placeholder="Term" class="form-control" style="width:150px;">
+    <input type="text" name="card[description]" placeholder="Description" class="form-control" style="width:300px">
+    <button class="btn btn-default" type="submit">Submit</button>
+  </form>
 </div>
+
