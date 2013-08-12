@@ -77,6 +77,7 @@ $(document).ready(function() {
     $('#logout').fadeIn();
     $('#userStats').fadeIn();
     $('#decksPage').fadeIn();
+    $('.login_form').fadeOut();
     $.post('/sign_up', $(this).closest('form').serialize(), function(response){
       $('#content_container').html(response).fadeIn();
     });
